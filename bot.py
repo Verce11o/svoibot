@@ -57,11 +57,11 @@ async def on_voice_state_update(member:discord.Member, before, after):
                 connect=True, speak=True, move_members=True, manage_channels=True, manage_roles=True, use_voice_activation=True)
         }, category=category, reason="Текстовая комната.")
         await member.move_to(voiceChannel, reason="Перенос участника в его голосовую комнату.")
-        while True:
-            if len(voiceChannel.members) == 0:
-                await voiceChannel.delete()
-                await textChannel.delete()
-                await category.delete()
+        for channel in client.get_channel(voiceID).category.voice_channels:
+            if(channel.id == voiceID or len(channel.members) != 0): continue
+            await channel.delete(reason="В голосовой комнате 0 людей!")
+            await voiceChannel.delete()
+            await textChannel.delete()
 
         channels.update({voiceChannel.id: {'voice' : voiceChannel, 'text' : textChannel, 'cat' : category}})
 @client.command()
