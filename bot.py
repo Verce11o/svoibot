@@ -91,7 +91,7 @@ async def ungrant(ctx,member:discord.Member,Role:discord.Role):
     await member.remove_roles(Role)
     await ctx.send(embed=emb)
 @client.command(pass_context=True)
-@commands.has_any_role(530159744594477066,530159744594477066)
+@commands.has_permissions(administrator=True)
 async def say(ctx, *,message):
     channel = client.get_channel(736826404523606029,530159744594477066)
     emb = discord.Embed(title='СВОИ',description=f'{message}',colour=discord.Color.blue())
