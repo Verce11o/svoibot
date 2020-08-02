@@ -94,6 +94,9 @@ async def ungrant(ctx,member:discord.Member,Role:discord.Role):
 @commands.has_any_role(530159744594477066,530159744594477066)
 async def say(ctx, *,message):
     channel = client.get_channel(736826404523606029,530159744594477066)
+    emb = discord.Embed(title='СВОИ',description=f'{message}',colour=discord.Color.blue())
+    emb.set_thumbnail(url="https://media.discordapp.net/attachments/679123068685385729/679123366527107072/def719137c3f6be9.gif?width=499&height=499")
+    emb.set_footer(text=ctx.author.name,icon_url=ctx.author.avatar_url)
     await ctx.channel.purge(limit=1)
     await channel.send(message)
 @client.command()
