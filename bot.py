@@ -29,7 +29,7 @@ async def checkmem():
         offline = len([1 for i in mem if str(i.status) in ['offline', 'invisible']])
         await client.get_channel(728363209240739844).edit(name=f"🔵Своих→ {len(mem)}")
         b = 0
-        channel = client.get_channel(739464885879963678)
+        channel = client.get_channel(739849977559384194)
         for i in guild.voice_channels:
             b += len(i.members)
         await channel.edit(name = f"🔊Voice: {b}")
@@ -56,11 +56,6 @@ async def on_voice_state_update(member:discord.Member, before, after):
                 connect=True, speak=True, move_members=True, manage_channels=True, manage_roles=True, use_voice_activation=True)
         }, category=category, reason="Текстовая комната.")
         await member.move_to(voiceChannel, reason="Перенос участника в его голосовую комнату.")
-        for channel in client.get_channel(voiceID).category.voice_channels:
-            if(channel.id == voiceID or len(channel.members) != 0): continue
-            await channel.delete(reason="В голосовой комнате 0 людей!")
-            await voiceChannel.delete()
-            await textChannel.delete()
 
         channels.update({voiceChannel.id: {'voice' : voiceChannel, 'text' : textChannel, 'cat' : category}})
 @client.command()
