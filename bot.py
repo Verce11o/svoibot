@@ -33,7 +33,7 @@ async def checkmem():
         channel = client.get_channel(739464885879963678)
         for i in guild.voice_channels:
             b += len(i.members)
-        await channel.edit(name = f"В voice : {b}")
+        await channel.edit(name = f"🔊Voice➡️ {b}")
 
 voiceID = 737311951348039743
 channels = {} 
