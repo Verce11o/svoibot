@@ -28,7 +28,6 @@ async def checkmem():
         mem = [m for m in guild.members if not m.bot]
         offline = len([1 for i in mem if str(i.status) in ['offline', 'invisible']])
         await client.get_channel(728363209240739844).edit(name=f"🔵Своих→ {len(mem)}")
-        await client.get_channel(739465793355644988).edit(name=f"В онлайн : {len(mem) - offline}")
         b = 0
         channel = client.get_channel(739464885879963678)
         for i in guild.voice_channels:
