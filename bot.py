@@ -17,7 +17,7 @@ client.remove_command('help')
 
 EXCROLES=()
 MAX_ROLES_PER_USER=5
-#check
+#checkf
 @client.event
 async def on_ready():
     print("Бот работает.")
