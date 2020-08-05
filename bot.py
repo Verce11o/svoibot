@@ -67,7 +67,7 @@ async def ping(ctx):
 
 #shit 
 @client.command(pass_context=True)
-@commands.has_any_role(550707413058191375,530159744594477066,647011232389398538)
+@commands.has_any_role(550707413058191375,530159744594477066,647011232389398538,653729074753044493)
 async def grant(ctx,member:discord.Member,Role:discord.Role,time:int):
     emb = discord.Embed(description=f':white_check_mark: Была выдана роль!',colour=discord.Color.green())
     if time == 0:
@@ -79,7 +79,7 @@ async def grant(ctx,member:discord.Member,Role:discord.Role,time:int):
         await asyncio.sleep(time*60)
         await member.remove_roles(Role)
 @client.command(pass_context=True)
-@commands.has_any_role(550707413058191375,530159744594477066,647011232389398538)
+@commands.has_any_role(550707413058191375,530159744594477066,647011232389398538,653729074753044493)
 async def ungrant(ctx,member:discord.Member,Role:discord.Role):
     emb = discord.Embed(description=f':white_check_mark: Была убрана роль!',colour=discord.Color.green())
     await member.remove_roles(Role)
